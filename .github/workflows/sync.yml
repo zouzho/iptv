@@ -1,0 +1,16 @@
+name: Sync Fork
+
+on:
+  schedule:
+    - cron: '*/6 * * * *' # 每30分钟执行一次
+  workflow_dispatch: # 允许手动触发
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: tgymnich/fork-sync@v2.0
+        with:
+          owner: [iptv-org]
+          base: [master]
+          head: [master]
